@@ -1,0 +1,27 @@
+{
+	"Fincontrol": [
+		"/static/images/fincontrol/shot1.png",
+		"/static/images/fincontrol/shot2.png"
+	],
+	"Work_Calc_time": [
+		"/static/images/work_calc_time/shot1.png",
+		"/static/images/work_calc_time/shot2.png"
+	],
+	"WebDG_Project": [
+		"/static/images/webdg/shot1.png",
+		"/static/images/webdg/shot2.png"
+	],
+	"2D-platform": [
+		"/static/images/2d_platform/shot1.png",
+		"/static/images/2d_platform/shot2.png"
+	],
+	"job-parser-system": [
+		"/static/images/job_parser/shot1.png",
+		"/static/images/job_parser/shot2.png"
+	],
+	"telegram_ai_bot": [
+		"/static/images/telegram_bot/shot1.png",
+		"/static/images/telegram_bot/shot2.png"
+	]
+}
+

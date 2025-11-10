@@ -1,0 +1,148 @@
+{% extends "base.html" %}
+{% block content %}
+
+<section id="about" class="section hero">
+	<div class="container hero-inner">
+		<div class="hero-content">
+			{% if profile.photo %}
+			<div class="hero-photo">
+				<img src="{{ profile.photo }}" alt="{{ profile.name }}" class="profile-photo">
+			</div>
+			{% endif %}
+			<div class="hero-text">
+				<h1>{{ profile.title }}</h1>
+				<p class="subtitle">{{ profile.location }}</p>
+				<p>Начинающий Python-разработчик с фокусом на backend (Flask/Django/FastAPI). Есть опыт в автоматизации, парсинге и разработке телеграм-ботов. Быстро учусь и развиваюсь через pet-проекты, открыт к стажировке и фрилансу.</p>
+				<div class="cta-row">
+					<a class="btn primary" href="#projects">Смотреть проекты</a>
+					<a class="btn" href="#contacts">Связаться</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="grid-bg" aria-hidden="true"></div>
+	<div class="glow" aria-hidden="true"></div>
+	<div class="glow glow-2" aria-hidden="true"></div>
+</section>
+
+<section id="skills" class="section">
+	<div class="container">
+		<h2>Навыки</h2>
+		<ul class="tag-list">
+			{% for s in profile.skills %}
+				<li class="tag">{{ s }}</li>
+			{% endfor %}
+		</ul>
+	</div>
+	<hr class="divider">
+	<div class="container">
+		<h2 id="projects">Проекты</h2>
+		<div class="projects-grid">
+			{% for r in repos %}
+				<div class="project-card" data-repo-url="{{ r.html_url }}">
+					<div class="project-card-clickable">
+						<div class="project-card-header">
+							<h3>{{ r.name }}</h3>
+							{% if r.language %}
+								<span class="lang">{{ r.language }}</span>
+							{% endif %}
+						</div>
+						<p class="desc">{{ r.description or "Описание не указано" }}</p>
+						<div class="meta">
+							<span>★ {{ r.stargazers_count }}</span>
+							<span>⑂ {{ r.forks_count }}</span>
+						</div>
+					</div>
+					{% if screenshots.get(r.name) %}
+						<div class="shots">
+							{% for img in screenshots.get(r.name)[:3] %}
+								<img src="{{ img }}" alt="screenshot {{ loop.index }}" class="screenshot-thumb" data-full-image="{{ img }}">
+							{% endfor %}
+						</div>
+					{% endif %}
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+</section>
+
+<section id="experience" class="section">
+	<div class="container">
+		<h2>Опыт / Избранные проекты</h2>
+		<div class="timeline">
+			{% for p in profile.experience_projects %}
+				<div class="tl-item">
+					<div class="tl-dot"></div>
+					<div class="tl-content">
+						<a href="{{ p.url }}" target="_blank" rel="noopener" class="tl-title">{{ p.name }}</a>
+						<div class="tl-sub">{{ p.stack }}</div>
+						<p>{{ p.summary }}</p>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+</section>
+
+<section id="certs" class="section">
+	<div class="container">
+		<h2>Сертификаты</h2>
+		{% if profile.certificates and profile.certificates|length > 0 %}
+			<div class="certificates-grid">
+				{% for cert in profile.certificates %}
+					<div class="cert-card">
+						{% if cert.image %}
+							<div class="cert-image">
+								{% if cert.url %}
+									<a href="{{ cert.url }}" target="_blank" rel="noopener">
+										<img src="{{ cert.image }}" alt="{{ cert.name }}">
+									</a>
+								{% else %}
+									<img src="{{ cert.image }}" alt="{{ cert.name }}">
+								{% endif %}
+							</div>
+						{% endif %}
+						<div class="cert-info">
+							{% if cert.url %}
+								<a href="{{ cert.url }}" target="_blank" rel="noopener" class="cert-name">{{ cert.name }}</a>
+							{% else %}
+								<h3 class="cert-name">{{ cert.name }}</h3>
+							{% endif %}
+							{% if cert.issuer %}
+								<div class="cert-issuer">{{ cert.issuer }}</div>
+							{% endif %}
+							{% if cert.date %}
+								<div class="cert-date">{{ cert.date }}</div>
+							{% endif %}
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+		{% else %}
+			<p>Пока без сертификатов — в процессе обучения.</p>
+		{% endif %}
+	</div>
+</section>
+
+<section id="contacts" class="section">
+	<div class="container">
+		<h2>Контакты</h2>
+		<div class="contacts">
+			<div><span class="label">Email:</span> <a href="mailto:{{ profile.contacts.email }}">{{ profile.contacts.email }}</a></div>
+			<div><span class="label">Телефон:</span> <a href="tel:+79171555770">{{ profile.contacts.phone_primary }}</a></div>
+			<div><span class="label">Телефон 2:</span> <a href="tel:+77051429555">{{ profile.contacts.phone_secondary }}</a></div>
+			<div><span class="label">Telegram:</span> <a href="{{ profile.contacts.telegram }}" target="_blank" rel="noopener">{{ profile.contacts.telegram }}</a></div>
+			<div><span class="label">GitHub:</span> <a href="{{ profile.contacts.github }}" target="_blank" rel="noopener">{{ profile.contacts.github }}</a></div>
+		</div>
+	</div>
+</section>
+
+<!-- Modal для просмотра скриншотов -->
+<div id="screenshot-modal" class="screenshot-modal">
+	<span class="modal-close">&times;</span>
+	<img class="modal-content" id="modal-image" src="" alt="Screenshot">
+	<div class="modal-caption"></div>
+</div>
+
+{% endblock %}
+

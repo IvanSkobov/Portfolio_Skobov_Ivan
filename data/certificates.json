@@ -1,0 +1,24 @@
+[
+	{
+		"name": "Программист на Python с нуля с помощью ChatGPT",
+		"issuer": "Университет Зерокодинга Zerocoder",
+		"date": "2025-11-02",
+		"url": "https://zerocoder.ru",
+		"image": "/static/images/certificates/python_chatgpt_cert.jpg"
+	},
+	{
+		"name": "Сертификат участника — Выдающееся участие в командной разработке",
+		"issuer": "Университет Zerocoder",
+		"date": "2024",
+		"url": "https://zerocoder.ru",
+		"image": "/static/images/certificates/team_dev_outstanding.jpg"
+	},
+	{
+		"name": "Сертификат участника — Успешное участие в командной разработке",
+		"issuer": "Университет Zerocoder",
+		"date": "2024",
+		"url": "https://zerocoder.ru",
+		"image": "/static/images/certificates/team_dev_success.jpg"
+	}
+]
+
