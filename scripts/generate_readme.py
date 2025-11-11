@@ -144,40 +144,73 @@ def generate():
 
 	resume_map = build_resume_map(profile)
 
+	def get_shots_for_slug(repo_slug: str) -> list[str]:
+		# Try exact key
+		if repo_slug in screenshots:
+			return screenshots[repo_slug]
+		# Try case-insensitive lookup
+		low = repo_slug.lower()
+		for k, v in screenshots.items():
+			if k.lower() == low:
+				return v
+		return []
+
 	# Build projects list for template
 	projects = []
-	for slug in featured:
-		key = slug.lower()
-		# Prefer direct match from profile projects by URL ending
-		match = None
-		for proj in profile.get("experience_projects", []):
+
+	# Prefer data directly from profile.experience_projects to keep names/summary identical сайту
+	experience = profile.get("experience_projects", [])
+
+	# If selection is provided, keep its order; otherwise use all
+	if featured:
+		# Map by slug
+		slug_to_proj = {}
+		for proj in experience:
 			url = (proj.get("url") or "").rstrip("/")
-			if url and (url.split("/")[-1].lower() == key or url.lower().endswith("/" + key)):
-				match = proj
-				break
+			slug = url.split("/")[-1] if url else ""
+			if slug:
+				slug_to_proj[slug.lower()] = proj
 
-		if match:
-			title = match.get("name", slug)
-			summary = match.get("summary", "")
-			stack = match.get("stack", "")
-			url = match.get("url") or guess_repo_url(slug, resume_map)
-		else:
-			title = resume_map.get(key, {}).get("name", slug)
-			summary = resume_map.get(key, {}).get("summary", "")
-			stack = resume_map.get(key, {}).get("stack", "")
-			url = guess_repo_url(slug, resume_map)
-
-		shots = screenshots.get(slug, [])
-		cover = shots[0] if shots else None
-		projects.append({
-			"slug": slug,
-			"title": title,
-			"url": url,
-			"summary": summary,
-			"stack": stack,
-			"cover": cover,
-			"screenshots": shots,
-		})
+		for slug in featured:
+			key = slug.lower()
+			proj = slug_to_proj.get(key)
+			if not proj:
+				# Fallback to resume_map or bare slug
+				title = resume_map.get(key, {}).get("name", slug)
+				summary = resume_map.get(key, {}).get("summary", "")
+				stack = resume_map.get(key, {}).get("stack", "")
+				url = guess_repo_url(slug, resume_map)
+			else:
+				title = proj.get("name", slug)
+				summary = proj.get("summary", "")
+				stack = proj.get("stack", "")
+				url = proj.get("url") or guess_repo_url(slug, resume_map)
+			shots = get_shots_for_slug(slug)
+			cover = shots[0] if shots else None
+			projects.append({
+				"slug": slug,
+				"title": title,
+				"url": url,
+				"summary": summary,
+				"stack": stack,
+				"cover": cover,
+				"screenshots": shots,
+			})
+	else:
+		for proj in experience:
+			url = (proj.get("url") or "").rstrip("/")
+			slug = url.split("/")[-1] if url else proj.get("name", "")[:30]
+			shots = get_shots_for_slug(slug)
+			cover = shots[0] if shots else None
+			projects.append({
+				"slug": slug,
+				"title": proj.get("name", slug),
+				"url": proj.get("url") or guess_repo_url(slug, resume_map),
+				"summary": proj.get("summary", ""),
+				"stack": proj.get("stack", ""),
+				"cover": cover,
+				"screenshots": shots,
+			})
 
 	# Certificates simplified for README
 	certs = certificates

@@ -46,7 +46,7 @@
   
   <code style="margin-right:6px;">HTML, CSS, Bootstrap (базовый frontend)</code>
   
-  <a href="#сертификаты"> → сертификаты</a>
+  
 </p>
 
 
@@ -59,17 +59,17 @@
     <td width="33%" valign="top" style="padding: 10px;">
       <a href="https://github.com/IvanSkobov/Fincontrol">
         
-        <img src="static/images/fincontrol/shot1.png" alt="FINCONTROL — сервис учёта личных финансов cover" width="320">
+        <img src="static/images/fincontrol/shot1.png" alt="Fincontrol cover" width="320">
         
       </a>
       <br>
-      <strong><a href="https://github.com/IvanSkobov/Fincontrol">FINCONTROL — сервис учёта личных финансов</a></strong>
-      <br><sub>Django, aiogram</sub>
-      <br><sub>Доходы/расходы, категории, бюджеты, аналитика, экспорт, уведомления; веб + Telegram-бот.</sub>
+      <strong><a href="https://github.com/IvanSkobov/Fincontrol">Fincontrol</a></strong>
+      
+      
       
       <br>
       
-        <img src="static/images/fincontrol/shot2.png" alt="FINCONTROL — сервис учёта личных финансов shot 1" width="155" style="margin-right:6px;">
+        <img src="static/images/fincontrol/shot2.png" alt="Fincontrol shot 1" width="155" style="margin-right:6px;">
       
       
     </td>
@@ -79,17 +79,17 @@
     <td width="33%" valign="top" style="padding: 10px;">
       <a href="https://github.com/IvanSkobov/Work_Calc_time">
         
-        <img src="static/images/work_calc_time/shot1.png" alt="Приложения для расчёта зарплаты cover" width="320">
+        <img src="static/images/work_calc_time/shot1.png" alt="Work_Calc_time cover" width="320">
         
       </a>
       <br>
-      <strong><a href="https://github.com/IvanSkobov/Work_Calc_time">Приложения для расчёта зарплаты</a></strong>
-      <br><sub>JavaScript, CSS, HTML, Batchfile</sub>
-      <br><sub>Поддержка команд/inline-кнопок, хранение и статистика расчётов, экспорт в Excel.</sub>
+      <strong><a href="https://github.com/IvanSkobov/Work_Calc_time">Work_Calc_time</a></strong>
+      
+      
       
       <br>
       
-        <img src="static/images/work_calc_time/shot2.png" alt="Приложения для расчёта зарплаты shot 1" width="155" style="margin-right:6px;">
+        <img src="static/images/work_calc_time/shot2.png" alt="Work_Calc_time shot 1" width="155" style="margin-right:6px;">
       
       
     </td>
@@ -99,17 +99,17 @@
     <td width="33%" valign="top" style="padding: 10px;">
       <a href="https://github.com/IvanSkobov/WebDG_Project">
         
-        <img src="static/images/webdg/shot1.png" alt="Веб-сайт на Flask с базой данных cover" width="320">
+        <img src="static/images/webdg/shot1.png" alt="WebDG_Project cover" width="320">
         
       </a>
       <br>
-      <strong><a href="https://github.com/IvanSkobov/WebDG_Project">Веб-сайт на Flask с базой данных</a></strong>
-      <br><sub>Flask, SQLite, Bootstrap, FullCalendar</sub>
-      <br><sub>Категории и карточки ссылок, добавление/редактирование через веб.</sub>
+      <strong><a href="https://github.com/IvanSkobov/WebDG_Project">WebDG_Project</a></strong>
+      
+      
       
       <br>
       
-        <img src="static/images/webdg/shot2.png" alt="Веб-сайт на Flask с базой данных shot 1" width="155" style="margin-right:6px;">
+        <img src="static/images/webdg/shot2.png" alt="WebDG_Project shot 1" width="155" style="margin-right:6px;">
       
       
     </td>
@@ -119,17 +119,17 @@
     <td width="33%" valign="top" style="padding: 10px;">
       <a href="https://github.com/IvanSkobov/2D-platform">
         
-        <img src="static/images/2d_platform/shot1.png" alt="2D-игра (Pygame) cover" width="320">
+        <img src="static/images/2d_platform/shot1.png" alt="2D-platform cover" width="320">
         
       </a>
       <br>
-      <strong><a href="https://github.com/IvanSkobov/2D-platform">2D-игра (Pygame)</a></strong>
-      <br><sub>Pygame</sub>
-      <br><sub>Уровни, коллизии, победа/поражение; структура: player.py, level.py, game.py, main.py.</sub>
+      <strong><a href="https://github.com/IvanSkobov/2D-platform">2D-platform</a></strong>
+      
+      
       
       <br>
       
-        <img src="static/images/2d_platform/shot2.png" alt="2D-игра (Pygame) shot 1" width="155" style="margin-right:6px;">
+        <img src="static/images/2d_platform/shot2.png" alt="2D-platform shot 1" width="155" style="margin-right:6px;">
       
       
     </td>
@@ -139,17 +139,17 @@
     <td width="33%" valign="top" style="padding: 10px;">
       <a href="https://github.com/IvanSkobov/job-parser-system">
         
-        <img src="static/images/job_parser/shot1.png" alt="Парсер вакансий cover" width="320">
+        <img src="static/images/job_parser/shot1.png" alt="job-parser-system cover" width="320">
         
       </a>
       <br>
-      <strong><a href="https://github.com/IvanSkobov/job-parser-system">Парсер вакансий</a></strong>
-      <br><sub>Requests, BeautifulSoup, SQLite, CSV</sub>
-      <br><sub>Парсинг вакансий, сохранение в SQLite, экспорт в CSV.</sub>
+      <strong><a href="https://github.com/IvanSkobov/job-parser-system">job-parser-system</a></strong>
+      
+      
       
       <br>
       
-        <img src="static/images/job_parser/shot2.png" alt="Парсер вакансий shot 1" width="155" style="margin-right:6px;">
+        <img src="static/images/job_parser/shot2.png" alt="job-parser-system shot 1" width="155" style="margin-right:6px;">
       
       
     </td>
@@ -159,17 +159,17 @@
     <td width="33%" valign="top" style="padding: 10px;">
       <a href="https://github.com/IvanSkobov/telegram_ai_bot">
         
-        <img src="static/images/telegram_bot/shot1.png" alt="Телеграм-бот Lineage-2 справка cover" width="320">
+        <img src="static/images/telegram_bot/shot1.png" alt="telegram_ai_bot cover" width="320">
         
       </a>
       <br>
-      <strong><a href="https://github.com/IvanSkobov/telegram_ai_bot">Телеграм-бот Lineage-2 справка</a></strong>
-      <br><sub>python-telegram-bot 20.7, SQLite</sub>
-      <br><sub>Кэширование результатов, логирование, хранение данных в SQLite.</sub>
+      <strong><a href="https://github.com/IvanSkobov/telegram_ai_bot">telegram_ai_bot</a></strong>
+      
+      
       
       <br>
       
-        <img src="static/images/telegram_bot/shot2.png" alt="Телеграм-бот Lineage-2 справка shot 1" width="155" style="margin-right:6px;">
+        <img src="static/images/telegram_bot/shot2.png" alt="telegram_ai_bot shot 1" width="155" style="margin-right:6px;">
       
       
     </td>
@@ -229,5 +229,5 @@
 
 ---
 
-<sub>Обновлено: 2025-11-11 09:06 UTC</sub>
+<sub>Обновлено: 2025-11-11 09:09 UTC</sub>
 
