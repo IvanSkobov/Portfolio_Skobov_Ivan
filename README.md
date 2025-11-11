@@ -53,103 +53,40 @@
 ## Избранные проекты
 
 
+|  |  |  |
+|---|---|---|
 
-### Fincontrol
+| <a href="https://github.com/IvanSkobov/Fincontrol"><img src="static/images/fincontrol/shot1.png" alt="Fincontrol cover" width="280"></a><br><strong><a href="https://github.com/IvanSkobov/Fincontrol">Fincontrol</a></strong><br><img src="static/images/fincontrol/shot2.png" alt="Fincontrol shot 1" width="128" style="margin-right:6px;">   |  |
 
+| <a href="https://github.com/IvanSkobov/Work_Calc_time"><img src="static/images/work_calc_time/shot1.png" alt="Work_Calc_time cover" width="280"></a><br><strong><a href="https://github.com/IvanSkobov/Work_Calc_time">Work_Calc_time</a></strong><br><img src="static/images/work_calc_time/shot2.png" alt="Work_Calc_time shot 1" width="128" style="margin-right:6px;">   |
 
-[![Fincontrol](static/images/fincontrol/shot1.png)](https://github.com/IvanSkobov/Fincontrol)
-
-
-
-
-- **Репозиторий**: https://github.com/IvanSkobov/Fincontrol
-
-- **Ещё скриншоты**:
-  [<img src="static/images/fincontrol/shot2.png" alt="Fincontrol shot 1" width="160">](https://github.com/IvanSkobov/Fincontrol) 
+| <a href="https://github.com/IvanSkobov/WebDG_Project"><img src="static/images/webdg/shot1.png" alt="WebDG_Project cover" width="280"></a><br><strong><a href="https://github.com/IvanSkobov/WebDG_Project">WebDG_Project</a></strong><br><img src="static/images/webdg/shot2.png" alt="WebDG_Project shot 1" width="128" style="margin-right:6px;"> |
 
 
----
+| <a href="https://github.com/IvanSkobov/2D-platform"><img src="static/images/2d_platform/shot1.png" alt="2D-platform cover" width="280"></a><br><strong><a href="https://github.com/IvanSkobov/2D-platform">2D-platform</a></strong><br><img src="static/images/2d_platform/shot2.png" alt="2D-platform shot 1" width="128" style="margin-right:6px;">   |  |
 
-### Work_Calc_time
+| <a href="https://github.com/IvanSkobov/job-parser-system"><img src="static/images/job_parser/shot1.png" alt="job-parser-system cover" width="280"></a><br><strong><a href="https://github.com/IvanSkobov/job-parser-system">job-parser-system</a></strong><br><img src="static/images/job_parser/shot2.png" alt="job-parser-system shot 1" width="128" style="margin-right:6px;">   |
 
-
-[![Work_Calc_time](static/images/work_calc_time/shot1.png)](https://github.com/IvanSkobov/Work_Calc_time)
+| <a href="https://github.com/IvanSkobov/telegram_ai_bot"><img src="static/images/telegram_bot/shot1.png" alt="telegram_ai_bot cover" width="280"></a><br><strong><a href="https://github.com/IvanSkobov/telegram_ai_bot">telegram_ai_bot</a></strong><br><img src="static/images/telegram_bot/shot2.png" alt="telegram_ai_bot shot 1" width="128" style="margin-right:6px;"> |
 
 
 
 
-- **Репозиторий**: https://github.com/IvanSkobov/Work_Calc_time
-
-- **Ещё скриншоты**:
-  [<img src="static/images/work_calc_time/shot2.png" alt="Work_Calc_time shot 1" width="160">](https://github.com/IvanSkobov/Work_Calc_time) 
-
-
----
-
-### WebDG_Project
-
-
-[![WebDG_Project](static/images/webdg/shot1.png)](https://github.com/IvanSkobov/WebDG_Project)
+## Опыт / Избранные проекты
 
 
 
+- **[Fincontrol](https://github.com/IvanSkobov/Fincontrol)**
 
-- **Репозиторий**: https://github.com/IvanSkobov/WebDG_Project
+- **[Work_Calc_time](https://github.com/IvanSkobov/Work_Calc_time)**
 
-- **Ещё скриншоты**:
-  [<img src="static/images/webdg/shot2.png" alt="WebDG_Project shot 1" width="160">](https://github.com/IvanSkobov/WebDG_Project) 
+- **[WebDG_Project](https://github.com/IvanSkobov/WebDG_Project)**
 
+- **[2D-platform](https://github.com/IvanSkobov/2D-platform)**
 
----
+- **[job-parser-system](https://github.com/IvanSkobov/job-parser-system)**
 
-### 2D-platform
-
-
-[![2D-platform](static/images/2d_platform/shot1.png)](https://github.com/IvanSkobov/2D-platform)
-
-
-
-
-- **Репозиторий**: https://github.com/IvanSkobov/2D-platform
-
-- **Ещё скриншоты**:
-  [<img src="static/images/2d_platform/shot2.png" alt="2D-platform shot 1" width="160">](https://github.com/IvanSkobov/2D-platform) 
-
-
----
-
-### job-parser-system
-
-
-[![job-parser-system](static/images/job_parser/shot1.png)](https://github.com/IvanSkobov/job-parser-system)
-
-
-
-
-- **Репозиторий**: https://github.com/IvanSkobov/job-parser-system
-
-- **Ещё скриншоты**:
-  [<img src="static/images/job_parser/shot2.png" alt="job-parser-system shot 1" width="160">](https://github.com/IvanSkobov/job-parser-system) 
-
-
----
-
-### telegram_ai_bot
-
-
-[![telegram_ai_bot](static/images/telegram_bot/shot1.png)](https://github.com/IvanSkobov/telegram_ai_bot)
-
-
-
-
-- **Репозиторий**: https://github.com/IvanSkobov/telegram_ai_bot
-
-- **Ещё скриншоты**:
-  [<img src="static/images/telegram_bot/shot2.png" alt="telegram_ai_bot shot 1" width="160">](https://github.com/IvanSkobov/telegram_ai_bot) 
-
-
----
-
+- **[telegram_ai_bot](https://github.com/IvanSkobov/telegram_ai_bot)**
 
 
 ## Сертификаты
@@ -167,5 +104,5 @@
 
 ---
 
-<sub>Обновлено: 2025-11-11 09:13 UTC</sub>
+<sub>Обновлено: 2025-11-11 09:17 UTC</sub>
 

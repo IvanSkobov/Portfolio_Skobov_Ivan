@@ -42,30 +42,26 @@
 
 ## Избранные проекты
 
-{% if projects %}
+{% if projects and projects|length > 0 %}
+|  |  |  |
+|---|---|---|
 {% for p in projects %}
-### {{ p.title }}{% if p.stack %} — _{{ p.stack }}_{% endif %}
-
-{% if p.cover %}
-[![{{ p.title }}]({{ p.cover }})]({{ p.url }})
-{% endif %}
-
-{% if p.summary %}
-{{ p.summary }}
-{% endif %}
-
-- **Репозиторий**: {{ p.url }}
-{% if p.screenshots and p.screenshots|length > 1 %}
-- **Ещё скриншоты**:
-  {% for img in p.screenshots[1:] %}[<img src="{{ img }}" alt="{{ p.title }} shot {{ loop.index }}" width="160">]({{ p.url }}) {% endfor %}
-{% endif %}
-
----
+| <a href="{{ p.url }}"><img src="{{ p.cover if p.cover else 'static/images/profile/photo.jpg' }}" alt="{{ p.title }} cover" width="280"></a><br><strong><a href="{{ p.url }}">{{ p.title }}</a></strong>{% if p.stack %}<br><sub>{{ p.stack }}</sub>{% endif %}{% if p.summary %}<br><sub>{{ p.summary }}</sub>{% endif %}{% if p.screenshots and p.screenshots|length > 1 %}<br>{% for img in p.screenshots[1:3] %}<img src="{{ img }}" alt="{{ p.title }} shot {{ loop.index }}" width="128" style="margin-right:6px;">{% endfor %}{% endif %} {% if loop.index % 3 == 0 %}|
+{% else %}{% if loop.index % 3 == 1 %}  |  |{% elif loop.index % 3 == 2 %}  |{% endif %}{% endif %}
 {% endfor %}
 {% else %}
 _Список проектов будет обновлён._
 {% endif %}
 
+## Опыт / Избранные проекты
+
+{% if projects and projects|length > 0 %}
+{% for p in projects %}
+- **[{{ p.title }}]({{ p.url }})**{% if p.stack %} — _{{ p.stack }}_{% endif %}{% if p.summary %}<br>{{ p.summary }}{% endif %}
+{% endfor %}
+{% else %}
+_Опыт будет добавлен._
+{% endif %}
 ## Сертификаты
 
 {% if certificates %}
