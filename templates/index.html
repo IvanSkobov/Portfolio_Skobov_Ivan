@@ -93,21 +93,17 @@
 					<div class="cert-card">
 						{% if cert.image %}
 							<div class="cert-image">
-								{% if cert.url %}
-									<a href="{{ cert.url }}" target="_blank" rel="noopener">
-										<img src="{{ cert.image }}" alt="{{ cert.name }}">
-									</a>
-								{% else %}
-									<img src="{{ cert.image }}" alt="{{ cert.name }}">
-								{% endif %}
+								<img src="{{ cert.image }}" alt="{{ cert.name }}" class="screenshot-thumb" data-full-image="{{ cert.image }}">
 							</div>
 						{% endif %}
 						<div class="cert-info">
-							{% if cert.url %}
-								<a href="{{ cert.url }}" target="_blank" rel="noopener" class="cert-name">{{ cert.name }}</a>
-							{% else %}
-								<h3 class="cert-name">{{ cert.name }}</h3>
-							{% endif %}
+							<h3 class="cert-name">
+								{% if cert.url %}
+									<a href="{{ cert.url }}" target="_blank" rel="noopener">{{ cert.name }}</a>
+								{% else %}
+									{{ cert.name }}
+								{% endif %}
+							</h3>
 							{% if cert.issuer %}
 								<div class="cert-issuer">{{ cert.issuer }}</div>
 							{% endif %}
