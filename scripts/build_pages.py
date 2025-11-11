@@ -10,6 +10,11 @@ STATIC_DIR = BASE_DIR / "static"
 DATA_DIR = BASE_DIR / "data"
 DOCS_DIR = BASE_DIR / "docs"
 
+def normalize_static_path(p: str) -> str:
+	if isinstance(p, str) and p.startswith("/static/"):
+		return p.lstrip("/")
+	return p
+
 
 def read_json(path: pathlib.Path, default):
 	try:
@@ -123,6 +128,14 @@ def main():
 	get_profile_data, fetch_github_repos = stub_fastapi_and_import_main()
 	profile = get_profile_data()
 	screenshots = read_json(DATA_DIR / "screenshots.json", {})
+	# Normalize leading slashes for GitHub Pages
+	screenshots = {k: [normalize_static_path(x) for x in v] for k, v in screenshots.items()}
+	if isinstance(profile.get("photo"), str):
+		profile["photo"] = normalize_static_path(profile["photo"])
+	if isinstance(profile.get("certificates"), list):
+		for cert in profile["certificates"]:
+			if isinstance(cert, dict) and "image" in cert and isinstance(cert["image"], str):
+				cert["image"] = normalize_static_path(cert["image"])
 
 	# Jinja env with url_for stub to static files
 	def url_for(name: str, path: str = "") -> str:
@@ -150,6 +163,8 @@ def main():
 
 	# write index.html
 	(DOCS_DIR / "index.html").write_text(html, encoding="utf-8")
+	# prevent Jekyll from processing
+	(DOCS_DIR / ".nojekyll").write_text("", encoding="utf-8")
 	print("Built docs/index.html and copied static/")
 
 
