@@ -64,17 +64,63 @@ def load_profile() -> dict:
 		from main import get_profile_data  # type: ignore
 		return get_profile_data()
 	except Exception:
-		# Fallback minimal profile
-		return {
-			"name": "Иван Скобов",
-			"title": "Python Developer",
-			"location": "",
-			"photo": "static/images/profile/photo.jpg",
-			"contacts": {
-				"github": "https://github.com/IvanSkobov"
-			},
-			"experience_projects": [],
-		}
+		# Second attempt: stub FastAPI imports then retry
+		try:
+			import types
+
+			fastapi_stub = types.ModuleType("fastapi")
+			responses_stub = types.ModuleType("fastapi.responses")
+			staticfiles_stub = types.ModuleType("fastapi.staticfiles")
+			templating_stub = types.ModuleType("fastapi.templating")
+
+			class _Dummy:  # pragma: no cover
+				def __init__(self, *args, **kwargs):
+					pass
+
+				def mount(self, *args, **kwargs):
+					return None
+
+			class _EnvDummy:  # pragma: no cover
+				def __init__(self, *args, **kwargs):
+					pass
+
+			fastapi_stub.FastAPI = _Dummy
+			fastapi_stub.Request = _Dummy
+			responses_stub.HTMLResponse = _Dummy
+			staticfiles_stub.StaticFiles = _Dummy
+			templating_stub.Jinja2Templates = _EnvDummy
+
+			sys.modules["fastapi"] = fastapi_stub
+			sys.modules["fastapi.responses"] = responses_stub
+			sys.modules["fastapi.staticfiles"] = staticfiles_stub
+			sys.modules["fastapi.templating"] = templating_stub
+
+			from main import get_profile_data  # type: ignore
+			return get_profile_data()
+		except Exception:
+			# Final fallback minimal profile
+			return {
+				"name": "Иван Скобов",
+				"title": "Python Developer (Junior)",
+				"location": "Самара, Готов к удалёнке",
+				"photo": "static/images/profile/photo.jpg",
+				"contacts": {
+					"email": "5secondvano@gmail.com",
+					"telegram": "https://t.me/i5second",
+					"github": "https://github.com/IvanSkobov",
+					"phone_primary": "+7 917 155 57 70",
+					"phone_secondary": "+7 705 142 95 55",
+				},
+				"skills": [
+					"Python (3.x), ООП",
+					"Flask / Django / FastAPI",
+					"SQLite, PostgreSQL, SQLAlchemy",
+					"Телеграм-боты (aiogram, telebot)",
+					"Git / GitHub / Docker (базовый)",
+					"HTML, CSS, Bootstrap (базовый frontend)",
+				],
+				"experience_projects": [],
+			}
 
 
 def generate():

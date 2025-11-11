@@ -6,12 +6,12 @@
   
   <img src="static/images/profile/photo.jpg" alt="Profile photo" width="120" style="border-radius: 50%;">
   
-  <h3>Python Developer</h3>
-  
+  <h3>Python Developer (Junior)</h3>
+  <p>Самара, Готов к удалёнке</p>
   <p>
     <a href="https://github.com/IvanSkobov">GitHub</a>
-    
-    
+     • <a href="https://t.me/i5second">Telegram</a>
+     • <a href="mailto:5secondvano@gmail.com">5secondvano@gmail.com</a>
   </p>
 </div>
 
@@ -23,14 +23,31 @@
 
 ## Контакты
 
-- **Email**: _не указан_
-- **Telegram**: _не указан_
+- **Email**: 5secondvano@gmail.com
+- **Telegram**: https://t.me/i5second
 - **GitHub**: https://github.com/IvanSkobov
-- **Телефон (основной)**: _не указан_
-- **Телефон (доп.)**: _не указан_
+- **Телефон (основной)**: +7 917 155 57 70
+- **Телефон (доп.)**: +7 705 142 95 55
 
 ## Навыки
 
+
+<p>
+  
+  <code style="margin-right:6px;">Python (3.x), ООП</code>
+  
+  <code style="margin-right:6px;">Flask / Django / FastAPI</code>
+  
+  <code style="margin-right:6px;">SQLite, PostgreSQL, SQLAlchemy</code>
+  
+  <code style="margin-right:6px;">Телеграм-боты (aiogram, telebot)</code>
+  
+  <code style="margin-right:6px;">Git / GitHub / Docker (базовый)</code>
+  
+  <code style="margin-right:6px;">HTML, CSS, Bootstrap (базовый frontend)</code>
+  
+  
+</p>
 
 
 ## Избранные проекты
@@ -212,5 +229,5 @@
 
 ---
 
-<sub>Обновлено: 2025-11-11 08:58 UTC</sub>
+<sub>Обновлено: 2025-11-11 09:01 UTC</sub>
 
