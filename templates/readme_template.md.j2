@@ -1,0 +1,92 @@
+<!-- Автогенерация: не редактируйте вручную. Источник: templates/readme_template.md.j2 -->
+
+# Портфолио — {{ profile.name }}
+
+<div align="center">
+  {% if profile.photo %}
+  <img src="{{ profile.photo }}" alt="Profile photo" width="120" style="border-radius: 50%;">
+  {% endif %}
+  <h3>{{ profile.title }}</h3>
+  {% if profile.location %}<p>{{ profile.location }}</p>{% endif %}
+  <p>
+    {% if profile.contacts.github %}<a href="{{ profile.contacts.github }}">GitHub</a>{% endif %}
+    {% if profile.contacts.telegram %} • <a href="{{ profile.contacts.telegram }}">Telegram</a>{% endif %}
+    {% if profile.contacts.email %} • <a href="mailto:{{ profile.contacts.email }}">{{ profile.contacts.email }}</a>{% endif %}
+  </p>
+</div>
+
+---
+
+## Избранные проекты
+
+{% if projects %}
+<!-- Карточки проектов -->
+{% for p in projects %}
+<details>
+  <summary><strong>{{ p.title }}</strong>{% if p.stack %} — <em>{{ p.stack }}</em>{% endif %}</summary>
+
+  {% if p.cover %}
+  <a href="{{ p.url }}">
+    <img src="{{ p.cover }}" alt="{{ p.title }} cover" width="800">
+  </a>
+  {% endif %}
+
+  {% if p.summary %}
+  <p>{{ p.summary }}</p>
+  {% endif %}
+
+  <p>
+    🔗 <a href="{{ p.url }}">Репозиторий</a>
+  </p>
+
+  {% if p.screenshots and p.screenshots|length > 1 %}
+  <details>
+    <summary>Показать ещё скриншоты</summary>
+    {% for img in p.screenshots[1:] %}
+    <img src="{{ img }}" alt="{{ p.title }} screenshot {{ loop.index }}" width="800">
+    {% endfor %}
+  </details>
+  {% endif %}
+
+</details>
+
+---
+{% endfor %}
+{% else %}
+_Список проектов будет обновлён._
+{% endif %}
+
+## Сертификаты
+
+{% if certificates %}
+<table>
+  <tr>
+  {% for c in certificates %}
+    <td align="center" style="padding: 8px;">
+      {% if c.url %}
+      <a href="{{ c.url }}">
+        {% if c.image %}<img src="{{ c.image }}" alt="{{ c.name }}" width="220"><br>{% endif %}
+        {{ c.name }}
+      </a>
+      {% else %}
+        {% if c.image %}<img src="{{ c.image }}" alt="{{ c.name }}" width="220"><br>{% endif %}
+        {{ c.name }}
+      {% endif %}
+      {% if c.issuer %}<br><sub>{{ c.issuer }}</sub>{% endif %}
+      {% if c.date %}<br><sub>{{ c.date }}</sub>{% endif %}
+    </td>
+    {% if loop.index % 3 == 0 %}
+  </tr><tr>
+    {% endif %}
+  {% endfor %}
+  </tr>
+</table>
+{% else %}
+_Сертификаты не добавлены._
+{% endif %}
+
+---
+
+<sub>Обновлено: {{ now }}</sub>
+
+
