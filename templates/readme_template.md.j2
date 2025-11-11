@@ -43,30 +43,25 @@
 ## Избранные проекты
 
 {% if projects %}
-<table>
-  {% for p in projects %}
-    {% if loop.index0 % 3 == 0 %}<tr>{% endif %}
-    <td width="33%" valign="top" style="padding: 10px;">
-      <a href="{{ p.url }}">
-        {% if p.cover %}
-        <img src="{{ p.cover }}" alt="{{ p.title }} cover" width="320">
-        {% endif %}
-      </a>
-      <br>
-      <strong><a href="{{ p.url }}">{{ p.title }}</a></strong>
-      {% if p.stack %}<br><sub>{{ p.stack }}</sub>{% endif %}
-      {% if p.summary %}<br><sub>{{ p.summary }}</sub>{% endif %}
-      {% if p.screenshots and p.screenshots|length > 1 %}
-      <br>
-      {% for img in p.screenshots[1:3] %}
-        <img src="{{ img }}" alt="{{ p.title }} shot {{ loop.index }}" width="155" style="margin-right:6px;">
-      {% endfor %}
-      {% endif %}
-    </td>
-    {% if loop.index % 3 == 0 %}</tr>{% endif %}
-  {% endfor %}
-  {% if projects|length % 3 != 0 %}</tr>{% endif %}
-</table>
+{% for p in projects %}
+### {{ p.title }}{% if p.stack %} — _{{ p.stack }}_{% endif %}
+
+{% if p.cover %}
+[![{{ p.title }}]({{ p.cover }})]({{ p.url }})
+{% endif %}
+
+{% if p.summary %}
+{{ p.summary }}
+{% endif %}
+
+- **Репозиторий**: {{ p.url }}
+{% if p.screenshots and p.screenshots|length > 1 %}
+- **Ещё скриншоты**:
+  {% for img in p.screenshots[1:] %}[<img src="{{ img }}" alt="{{ p.title }} shot {{ loop.index }}" width="160">]({{ p.url }}) {% endfor %}
+{% endif %}
+
+---
+{% endfor %}
 {% else %}
 _Список проектов будет обновлён._
 {% endif %}
@@ -74,28 +69,10 @@ _Список проектов будет обновлён._
 ## Сертификаты
 
 {% if certificates %}
-<table>
-  <tr>
-  {% for c in certificates %}
-    <td align="center" style="padding: 8px;">
-      {% if c.url %}
-      <a href="{{ c.url }}">
-        {% if c.image %}<img src="{{ c.image }}" alt="{{ c.name }}" width="220"><br>{% endif %}
-        {{ c.name }}
-      </a>
-      {% else %}
-        {% if c.image %}<img src="{{ c.image }}" alt="{{ c.name }}" width="220"><br>{% endif %}
-        {{ c.name }}
-      {% endif %}
-      {% if c.issuer %}<br><sub>{{ c.issuer }}</sub>{% endif %}
-      {% if c.date %}<br><sub>{{ c.date }}</sub>{% endif %}
-    </td>
-    {% if loop.index % 3 == 0 %}
-  </tr><tr>
-    {% endif %}
-  {% endfor %}
-  </tr>
-</table>
+{% set chunk = [] %}
+{% for c in certificates %}
+{{ "- " }}{% if c.url %}[{% endif %}{% if c.image %}![]({{ c.image }}) {% endif %}{{ c.name }}{% if c.url %}]({{ c.url }}){% endif %}{% if c.issuer %} — _{{ c.issuer }}_{% endif %}{% if c.date %}, {{ c.date }}{% endif %}
+{% endfor %}
 {% else %}
 _Сертификаты не добавлены._
 {% endif %}
