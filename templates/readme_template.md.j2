@@ -17,6 +17,18 @@
 
 ---
 
+## Обо мне
+
+Начинающий backend-разработчик на Python с фокусом на FastAPI/Django/Flask. Есть опыт в создании телеграм-ботов, небольших веб‑сервисов и утилит. Люблю аккуратные UI, автоматизацию и чистый код. Открыт к стажировке и джун‑позициям.
+
+## Контакты
+
+- **Email**: {% if profile.contacts.email %}{{ profile.contacts.email }}{% else %}_не указан_{% endif %}
+- **Telegram**: {% if profile.contacts.telegram %}{{ profile.contacts.telegram }}{% else %}_не указан_{% endif %}
+- **GitHub**: {% if profile.contacts.github %}{{ profile.contacts.github }}{% else %}_не указан_{% endif %}
+- **Телефон (основной)**: {% if profile.contacts.phone_primary %}{{ profile.contacts.phone_primary }}{% else %}_не указан_{% endif %}
+- **Телефон (доп.)**: {% if profile.contacts.phone_secondary %}{{ profile.contacts.phone_secondary }}{% else %}_не указан_{% endif %}
+
 ## Навыки
 
 {% if profile.skills %}
