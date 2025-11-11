@@ -38,7 +38,7 @@ def build_resume_map(profile: dict) -> dict:
 		url = proj.get("url") or ""
 		repo_name = url.rstrip("/").split("/")[-1] if url else ""
 		if repo_name:
-			result[repo_name] = {
+			result[repo_name.lower()] = {
 				"name": proj.get("name", repo_name),
 				"stack": proj.get("stack", ""),
 				"summary": proj.get("summary", ""),
@@ -49,8 +49,9 @@ def build_resume_map(profile: dict) -> dict:
 
 def guess_repo_url(repo_slug: str, resume_map: dict, github_user: str = "IvanSkobov") -> str:
 	# If explicit URL known from resume map, prefer it
-	if repo_slug in resume_map and resume_map[repo_slug].get("url"):
-		return resume_map[repo_slug]["url"]
+	key = repo_slug.lower()
+	if key in resume_map and resume_map[key].get("url"):
+		return resume_map[key]["url"]
 	# Fallback to default user namespace
 	if "/" in repo_slug:
 		return f"https://github.com/{repo_slug}"
@@ -67,6 +68,9 @@ def load_profile() -> dict:
 		# Second attempt: stub FastAPI imports then retry
 		try:
 			import types
+			# Clear possibly half-initialized module
+			if "main" in sys.modules:
+				del sys.modules["main"]
 
 			fastapi_stub = types.ModuleType("fastapi")
 			responses_stub = types.ModuleType("fastapi.responses")
@@ -143,10 +147,26 @@ def generate():
 	# Build projects list for template
 	projects = []
 	for slug in featured:
-		title = resume_map.get(slug, {}).get("name", slug)
-		summary = resume_map.get(slug, {}).get("summary", "")
-		stack = resume_map.get(slug, {}).get("stack", "")
-		url = guess_repo_url(slug, resume_map)
+		key = slug.lower()
+		# Prefer direct match from profile projects by URL ending
+		match = None
+		for proj in profile.get("experience_projects", []):
+			url = (proj.get("url") or "").rstrip("/")
+			if url and (url.split("/")[-1].lower() == key or url.lower().endswith("/" + key)):
+				match = proj
+				break
+
+		if match:
+			title = match.get("name", slug)
+			summary = match.get("summary", "")
+			stack = match.get("stack", "")
+			url = match.get("url") or guess_repo_url(slug, resume_map)
+		else:
+			title = resume_map.get(key, {}).get("name", slug)
+			summary = resume_map.get(key, {}).get("summary", "")
+			stack = resume_map.get(key, {}).get("stack", "")
+			url = guess_repo_url(slug, resume_map)
+
 		shots = screenshots.get(slug, [])
 		cover = shots[0] if shots else None
 		projects.append({
